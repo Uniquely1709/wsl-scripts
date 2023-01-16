@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+#check for ssh-server 
+SERVICE="ssh"
+if pgrep "$SERVICE" >/dev/null
+then
+  echo "$SERVICE is running"
+else
+  echo "$SERVICE stopped."
+  sudo /usr/sbin/service ssh start
+  echo "started ssh"
+fi
+
+#check for mariadb 
+SERVICE="mariadb"
+if pgrep "$SERVICE" >/dev/null
+then
+  echo "$SERVICE is running"
+else
+  echo "$SERVICE stopped."
+  sudo /usr/sbin/service mariadb start
+  echo "started mariadb"
+fi
+
+alias php-switch='sudo update-alternatives --config php'
+
+echo "additional_script.sh loaded."

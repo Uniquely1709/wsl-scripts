@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+sudo sh -c "echo '${USER} ALL=(root) NOPASSWD: /usr/sbin/service ssh start' >/etc/sudoers.d/service-ssh-start"
+sudo sh -c "echo '${USER} ALL=(root) NOPASSWD: /usr/sbin/service mariadb start' >/etc/sudoers.d/service-mariadb-start"
